@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>regulation</title>
+    <link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}">
+    <script th:src="@{/js/jquery-3.6.0.min.js}"></script>
+    <script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+</head>
+<body>
+<div th:replace="user/common::nav"></div>
+
+
+<div class="container-fluid">
+    <div class="row">
+        <!--左边菜单栏-->
+        <div th:replace="user/common::left"></div>
+
+        <div class="col-sm-10" id="right">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    搜索
+                </div>
+                <div class="panel-body">
+                    <form role="form" class="form-inline" th:action="@{/selectRepairinfo}">
+                        <div class="form-group">
+                            <label for="uprepairid">编号</label>
+                            <input type="text" class="form-control" id="uprepairid" name="uprepairid" placeholder="请输入维修信息编号">
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-default">开始搜索</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!--
+                列表展示
+            -->
+            <div class="table-responsive">
+                <table class="table table-striped ">
+                    <thead>
+                    <tr>
+                        <th>编号</th>
+                        <th>报修时间</th>
+                        <th>报修人</th>
+                        <th>学工号</th>
+                        <th>地点</th>
+                        <th>详细信息</th>
+                        <th>电话</th>
+                        <th>状态</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td th:text="${repairInfo.id}"></td>
+                        <td th:text="${#dates.format(repairInfo.subtime, 'yyyy-MM-dd HH:mm')}"></td>
+                        <td th:text="${repairInfo.name}"></td>
+                        <td th:text="${repairInfo.number}"></td>
+                        <td th:text="${repairInfo.address}"></td>
+                        <td th:text="${repairInfo.info}"></td>
+                        <td th:text="${repairInfo.phone}"></td>
+                        <td th:switch="${repairInfo.status}">
+                            <p th:case='0' th:text="待办"></p>
+                            <p th:case='1' th:text="已修"></p>
+                        </td>
+                    </tr>
+
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- 底部页脚部分 -->
+<div th:replace="user/common::footer">
+
+</div>
+</body>
+
+
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>请登陆</title>
+    <link th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/css/login.css}" rel="stylesheet"  type="text/css" />
+    <script th:src="@{/js/jquery-3.6.0.min.js}" ></script>
+    <script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+</head>
+<body>
+<nav class="navbar navbar-default panel-info" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header panel-info">
+            <a class="navbar-brand" th:href="@{repair}">维修平台 </a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="#"> 首页</a></li>
+        </ul>
+    </div>
+</nav>
+<div id="top">
+    <div id="topIn" >
+        <div id="title" class="submitTop" >欢迎登陆</div>
+        <form class="submitTop form-horizontal " role="form" th:action="@{/login}" method="post">
+            <div class="form-group">
+                <label for="firstname" class="col-sm-3 control-label">用户</label>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control" id="firstname" name="username" placeholder="请输入用户名">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="lastname" class="col-sm-3 control-label">密码</label>
+                <div class="col-sm-7">
+                    <input type="password" class="form-control" id="lastname" name="password" placeholder="请输入密码">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-8">
+                    <button type="submit" class="btn btn-info btn-lg">登录</button>
+                </div>
+                <label th:text="${msg}"></label>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-8">
+                    <label class="radio-inline">
+                        <input type="radio" name="key"  value="0" checked> admin
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="key"  value="1"> repairman
+                    </label>
+
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

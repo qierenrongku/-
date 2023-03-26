@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--顶部栏-->
+<nav class="navbar navbar-default" role="navigation" th:fragment="nav">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="example-navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li class=""><a class="icon-bar" href="#">维修系统</a>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a th:href="@{/exit}">退出</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="col-sm-2" id="menulist" th:fragment="left">
+  <div class="panel panel-default">
+    <div class="panel-heading "><a style='color:black' th:href="@{/hello}">欢迎</a></div>
+
+    <div class="panel-heading">个人信息</div>
+    <ul class="list-group">
+      <li class="list-group-item"><a th:href="@{/userinfo}">员工信息</a></li>
+    </ul>
+    <div class="panel-heading">维修信息</div>
+    <ul class="list-group">
+      <li class="list-group-item"><a th:href="@{/userlistinfo}">报修信息</a></li>
+    </ul>
+    <div class="panel-heading">订单信息</div>
+    <ul class="list-group">
+      <li class="list-group-item"><a th:href="@{/userlistorder}">我的订单</a></li>
+    </ul>
+  </div>
+</div>
+<div class="footer" th:fragment="footer">
+  <p class="text-center">
+    2022 &copy; qrrk.
+  </p>
+</div>
+</body>
+</html>

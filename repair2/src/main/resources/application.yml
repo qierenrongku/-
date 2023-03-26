@@ -1,0 +1,19 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 12345
+    url:  jdbc:mysql://localhost:3306/repair2?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+  thymeleaf:
+    cache: false
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    call-setters-on-nulls: true #设置返回字段不为空，前端不报错
+
+
+tx:
+  appId: 1400660309
+  appKey: "59c620b52135f63b2669e0ee813d2052"
+  templateId: 1360503
+  smsSign:  "且任容枯个人网"

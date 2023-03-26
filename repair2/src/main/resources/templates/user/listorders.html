@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>regulation</title>
+    <link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}">
+    <script th:src="@{/js/jquery-3.6.0.min.js}"></script>
+    <script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+</head>
+<body>
+<div th:replace="user/common::nav"></div>
+
+
+<div class="container-fluid">
+    <div class="row">
+        <!--左边菜单栏-->
+        <div th:replace="user/common::left"></div>
+
+        <div class="col-sm-10" id="right">
+
+            <!--
+                列表展示
+            -->
+            <div class="table-responsive">
+                <table class="table table-striped ">
+                    <caption>订单信息</caption>
+                    <thead>
+                    <tr>
+                        <th>编号</th>
+                        <th>报修编号</th>
+                        <th>维修员编号</th>
+                        <th>订单时间</th>
+                        <th>状态</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody >
+                    <tr th:each="order:${orders.records}">
+                        <td th:text="${order.id}"></td>
+                        <td th:text="${order.uprepairid}"></td>
+                        <td th:text="${order.repairmanid}"></td>
+                        <td th:text="${#dates.format(order.starttime, 'yyyy-MM-dd HH:mm')}"></td>
+                        <td th:switch="${order.status}">
+                            <p th:case='0' th:text="待办"></p>
+                            <p th:case='1' th:text="已修"></p>
+                        </td>
+                        <td>
+                            <div class="btn-group">
+                                <a th:href="@{/userupdateorder(id=${order.id},pn=${orders.current})}" class="btn btn-info">已修</a>
+                            </div>
+
+                        </td>
+                    </tr>
+
+                    </tbody>
+                </table>
+            </div>
+            <ul class="pagination" style="float: right;">
+                <li>
+                    <a href="#"class="disabled">Prev</a>
+                </li>
+                <li th:class="${num==orders.current?'active':''}" th:each="num:${#numbers.sequence(1,orders.pages)}">
+                    <a th:href="@{/userlistorder(pn=${num})}" th:text="${num}"></a>
+                </li>
+                <li>
+                    <a href="#" class="disabled">Next</a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</div>
+<!-- 底部页脚部分 -->
+<div th:replace="user/common::footer">
+
+</div>
+</body>
+
+
+
+</html>

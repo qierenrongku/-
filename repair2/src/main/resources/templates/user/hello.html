@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>regulation</title>
+    <link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}">
+    <script th:src="@{/js/jquery-3.6.0.min.js}"></script>
+    <script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+</head>
+<body>
+<div th:replace="user/common::nav"></div>
+
+
+<div class="container-fluid">
+    <div class="row">
+        <!--左侧菜单栏        -->
+        <div th:replace="user/common::left"></div>
+        <div class="col-sm-10" id="right">
+            <div class="jumbotron">
+                <h1>
+                    Hello, Repairman!
+                </h1>
+                <p>
+                    这是维修平台的个人界面
+                </p>
+                <p>
+                    欢迎进入维修管理系统，请选择左侧的菜单进行您需要的操作
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 底部页脚部分 -->
+<div th:replace="user/common::footer">
+
+</div>
+</body>
+
+</html>

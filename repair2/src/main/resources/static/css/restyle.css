@@ -1,0 +1,42 @@
+body{
+    margin: 0 auto;
+}
+.left{
+    float: left;
+}
+.right{
+    float: right;
+}
+
+#header{
+    height: 48px;
+    background-color: mediumslateblue;
+    color: aqua;
+}
+#menu{
+    position: fixed;
+    top:50px;
+    left: 0;
+    bottom: 0;
+    width: 200px;
+    background-color: lightsteelblue;
+}
+#content{
+    position: fixed;
+    top: 50px;
+    right: 0;
+    bottom: 0;
+    left: 202px;
+    background-color: whitesmoke;
+    overflow: auto;
+}
+.logo{
+    height: 48px;
+    width: 200px;
+    text-align: center;
+    color: white;
+}
+.logo a img{
+    height: 48px;
+    width: 50px;
+}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>regulation</title>
+    <link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.min.css}">
+    <script th:src="@{/js/jquery-3.6.0.min.js}"></script>
+    <script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+</head>
+<body>
+<div th:replace="regulation/common::nav"></div>
+
+
+<div class="container-fluid">
+    <div class="row">
+        <!--左边菜单栏-->
+        <div th:replace="regulation/common::left"></div>
+
+        <div class="col-sm-10" id="right">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                搜索
+                            </div>
+                            <div class="panel-body">
+                                <form role="form" class="form-inline" th:action="@{/selectRepairman}">
+                                    <div class="form-group">
+                                        <label for="name">姓名</label>
+                                        <input type="text" class="form-control" id="name" name="name" placeholder="请输入姓名">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="section">部门</label>
+                                        <input type="text" class="form-control" id="section" name="section" placeholder="请输入部门名称">
+                                    </div>
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-default">开始搜索</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+            <!--
+                列表展示
+            -->
+            <div class="table-responsive">
+                <table class="table table-striped ">
+                    <thead>
+                    <tr>
+                        <th>编号</th>
+                        <th>姓名</th>
+                        <th>性别</th>
+                        <th>年龄</th>
+                        <th>电话</th>
+                        <th>部门</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="repairman:${repairmans}">
+                        <td th:text="${repairman.id}"></td>
+                        <td th:text="${repairman.name}"></td>
+                        <td th:text="${repairman.sex}"></td>
+                        <td th:text="${repairman.age}"></td>
+                        <td th:text="${repairman.phone}"></td>
+                        <td th:text="${repairman.section}"></td>
+                        <td>
+                            <div class="btn-group">
+                                <a th:href="@{'/update/'+${repairman.id}}" class="btn btn-info">修改</a>
+                                <a th:href="@{'/delete/'+${repairman.id}}" class="btn btn-danger">删除</a>
+                            </div>
+
+                        </td>
+                    </tr>
+
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- 底部页脚部分 -->
+<div th:replace="regulation/common::footer">
+
+</div>
+</body>
+
+
+
+</html>
