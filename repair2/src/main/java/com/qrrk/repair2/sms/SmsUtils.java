@@ -20,7 +20,7 @@ public class SmsUtils
     public  void sendMessage(String[] phone,String[] params) {
         try {
 
-            Credential cred = new Credential("AKIDWszrUryqUt3zg8KHzRebJlyvc4HExRgg", "nKceQwDE0WnpcBUZOyINCxd6KJ3XmmW0");
+            Credential cred = new Credential("AKID********yvc4HExRgg", "nK***********cBUZOyINCxd6KJ3XmmW0");
 
             // 实例化一个http选项，可选，没有特殊需求可以跳过
             HttpProfile httpProfile = new HttpProfile();
